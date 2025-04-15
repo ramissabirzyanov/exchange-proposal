@@ -1,0 +1,33 @@
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<br>
+<div>
+    <a role="button" href="{% url 'user_create' %}">Sign Up</a>
+</div>
+<br>
+<hr>
+<div>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in user_list %}
+          <tr>
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
