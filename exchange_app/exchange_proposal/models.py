@@ -10,19 +10,19 @@ class ExchangeProposal(models.Model):
         ('accepted', 'принята'),
         ('canceled', 'отменена'),
     ]
-    sender_id = models.ForeignKey(
+    sender = models.ForeignKey(
         User,
         related_name='sender',
         on_delete=models.CASCADE,
         verbose_name=('Sender')
     )
-    reciever_id = models.ForeignKey(
+    reciever = models.ForeignKey(
         User,
         related_name='reciever',
         on_delete=models.CASCADE,
         verbose_name=('Reciever')
     )
-    ad_id = models.ForeignKey(
+    ad = models.ForeignKey(
         Ad,
         related_name='ads',
         on_delete=models.PROTECT,

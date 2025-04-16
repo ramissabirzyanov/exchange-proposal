@@ -1,0 +1,47 @@
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h2>Предметы пользователя №{{ user.id }}</h2>
+<br>
+<div>
+    <a role="button" href="{% url 'ad_add' %}">Добавить предмет</a>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Изображение</th>
+            <th>Категория</th>
+            <th>Состояние</th>
+            <th>Дата добавления</th>
+        </tr>
+        {% for ad in user.ad.all %}
+        <tr>
+            <td>{{ user.ad.title }}</td>
+            <td>{{ user.ad.description }}</td>
+            <td>{{ user.ad.image_url }}</td>
+            <td>{{ user.ad.category_id }}</td>
+            <td>{{ user.ad.condition }}</td>
+            <td>{{ user.ad.created_at }}</td>
+        </td>
+        {% endfor %}
+    </table>
+    <br>
+</div>
+<hr>
+<!-- <form method="get" action="{% url 'order_update' order.id %}">
+    {% csrf_token %}
+    <button type="submit">Изменить заказ</button>
+</form>
+
+<form method="get" action="{% url 'order_delete' order.id %}">
+    {% csrf_token %}
+    <button type="submit">Удалить заказ</button>
+</form> -->
+

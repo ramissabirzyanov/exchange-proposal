@@ -14,13 +14,13 @@ class Ad(models.Model):
     description = models.TextField(
         blank=True, verbose_name=('Discription')
     )
-    owner_id = models.ForeignKey(
+    owner = models.ForeignKey(
         User,
         related_name='owner',
         on_delete=models.CASCADE,
         verbose_name=('Owner')
     )
-    category_id = models.ForeignKey(
+    category = models.ForeignKey(
         Category,
         related_name='category',
         on_delete=models.PROTECT,
