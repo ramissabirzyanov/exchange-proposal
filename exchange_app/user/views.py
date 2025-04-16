@@ -10,7 +10,7 @@ from exchange_app.user.serializers import UserSerializer
 from exchange_app.user.forms import UserCreateForm
 
 
-class UserAPIView(ModelViewSet):
+class UsersAPIView(ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
