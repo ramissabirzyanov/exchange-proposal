@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "exchange"
+name = "exchange_app"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
@@ -11,6 +11,7 @@ django = "^5.2"
 django-rest-framework = "^0.1.0"
 drf-yasg = "^1.21.10"
 python-dotenv = "^1.1.0"
+psycopg2-binary = "^2.9.10"
 
 
 [build-system]

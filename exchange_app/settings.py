@@ -44,9 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
-    'user',
-    'ad',
-    'exchange_proposal',
+    'exchange_app.user',
+    'exchange_app.category',
+    'exchange_app.exchange_proposal',
+    'exchange_app.ad',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'exchange.urls'
+ROOT_URLCONF = 'exchange_app.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'exchange.wsgi.application'
+WSGI_APPLICATION = 'exchange_app.wsgi.application'
 
 
 # Database
@@ -140,3 +141,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'user.User'
