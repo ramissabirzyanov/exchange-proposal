@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <title>Давай меняться!</title>
+    <H1>Сервис Давай Меняться</H1>
     <meta charset="utf-8">
   </head>
-  <div class="container ml-6 pl-6">
+  <div>
   <nav>
       <div>
         <ul>
           {% if user.is_authenticated %}
           <li>
-            <a href="/users/">Пользователи</a>
+            <a  href="{% url 'users' %}">Пользователи</a>
           </li>
           {% else %}
           <li>
@@ -25,7 +26,14 @@
   </div>
 
   <body>
-    {% block content %}{% endblock %}
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li> {{ message }} </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% block content %}{% endblock %}
   </body>
 
   </html>

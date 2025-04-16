@@ -21,7 +21,7 @@ class IsUserLoggedMixin(NoPermissionHandleMixin, LoginRequiredMixin):
         return super().dispatch(request, *args, **kwargs)
 
 
-class IsUserOwnerMixin(NoPermissionHandleMixin, UserPassesTestMixin):
+class IsAdOwnerMixin(NoPermissionHandleMixin, UserPassesTestMixin):
     def test_func(self):
         ad = self.get_object()
         return self.request.user.id == ad.owner_id

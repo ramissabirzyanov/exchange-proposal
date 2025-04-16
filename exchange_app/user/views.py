@@ -1,7 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib import messages
 from rest_framework.viewsets import ModelViewSet
 
 from exchange_app.user.models import User
@@ -11,7 +10,6 @@ from exchange_app.mixins import IsUserLoggedMixin
 
 
 class UsersAPIView(IsUserLoggedMixin, ModelViewSet):
-
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

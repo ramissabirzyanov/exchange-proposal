@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<br>
+<br>
+<hr>
+<div>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>CATEGORY</th>
+            <th>IMAGE URL</th>
+            <th>CONDITION</th>
+            <th>CREATE DATE</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ad in ad_list %}
+          <tr>
+            <th scope="row">{{ ad.id }}</th>
+            <td>{{ ad.title }}</td>
+            <td>{{ ad.description }}</td>
+            <td>{{ ad.category }}</td>
+            <td>{{ ad.image_url }}</td>
+            <td>{{ ad.condition }}</td>
+            <td>{{ ad.create_at }}</td>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>

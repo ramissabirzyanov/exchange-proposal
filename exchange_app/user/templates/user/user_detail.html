@@ -6,10 +6,10 @@
 </ul>
 {% endif %}
 
-<h2>Предметы пользователя №{{ user.id }}</h2>
+<h2>Предметы {{ user.first_name }} {{ user.last_name }}</h2>
 <br>
 <div>
-    <a role="button" href="{% url 'ad_add' %}">Добавить предмет</a>
+    <a role="button" href="{% url 'ad_create' %}">Добавить предмет</a>
 </div>
 <div>
     <table>
@@ -35,13 +35,5 @@
     <br>
 </div>
 <hr>
-<!-- <form method="get" action="{% url 'order_update' order.id %}">
-    {% csrf_token %}
-    <button type="submit">Изменить заказ</button>
-</form>
 
-<form method="get" action="{% url 'order_delete' order.id %}">
-    {% csrf_token %}
-    <button type="submit">Удалить заказ</button>
-</form> -->
 

@@ -4,7 +4,6 @@ from exchange_app.user.models import User
 from exchange_app.category.models import Category
 
 
-
 class Ad(models.Model):
     title = models.CharField(
         max_length=200,

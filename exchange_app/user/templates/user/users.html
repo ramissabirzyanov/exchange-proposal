@@ -1,11 +1,6 @@
-{% if messages %}
-<ul>
-    {% for message in messages %}
-    <li> {{ message }} </li>
-    {% endfor %}
-</ul>
-{% endif %}
+{% extends "base.html" %}
 
+{% block content %}
 <br>
 <br>
 <hr>
@@ -28,3 +23,4 @@
         </tbody>
       </table>
 </div>
+{% endblock %}
