@@ -16,12 +16,12 @@ class NoPermissionHandleMixin:
 class IsUserLoggedMixin(NoPermissionHandleMixin, LoginRequiredMixin):
 
     def dispatch(self, request, *args, **kwargs):
-        self.permission_denied_message = 'Пожалуйста за регистрируйтесь'
+        self.permission_denied_message = 'Пожалуйста зарегистрируйтесь!'
         self.permission_denied_url = reverse_lazy('login')
         return super().dispatch(request, *args, **kwargs)
 
 
-class IsUserAuthorMixin(NoPermissionHandleMixin, UserPassesTestMixin):
+class IsUserOwnerMixin(NoPermissionHandleMixin, UserPassesTestMixin):
     def test_func(self):
         ad = self.get_object()
         return self.request.user.id == ad.owner_id

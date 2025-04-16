@@ -9,8 +9,6 @@ from rest_framework import permissions
 from exchange_app import views
 
 
-
-
 router = DefaultRouter()
 router.register(r'api/users', UsersAPIView)
 
@@ -28,8 +26,6 @@ urlpatterns = [
     path('login/', views.UserLoginView.as_view(), name='login'),
     path('logout/', views.UserLogoutView.as_view(), name='logout'),
 ]  
-
-
 
 urlpatterns += [
     path('', include(router.urls))
