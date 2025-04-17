@@ -23,6 +23,10 @@ class AdCreateView(IsUserLoggedMixin, SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('ad_list')
     success_message = 'Предмет успешно добавлен'
 
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
 
 class AdListView(IsUserLoggedMixin, ListView):
     model = Ad

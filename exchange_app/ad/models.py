@@ -11,7 +11,9 @@ class Ad(models.Model):
         verbose_name=('Name')
     )
     description = models.TextField(
-        blank=True, verbose_name=('Discription')
+        blank=True,
+        null=True,
+        verbose_name=('Discription')
     )
     owner = models.ForeignKey(
         User,
@@ -28,10 +30,13 @@ class Ad(models.Model):
     image_url = models.CharField(
         max_length=200,
         blank=True,
+        null=True,
         verbose_name='Image_url'
     )
     condition = models.CharField(
         max_length=200,
+        null=True,
+        blank=True,
         verbose_name='Condition'
     )
     created_at = models.DateTimeField(
