@@ -37,3 +37,8 @@ class Ad(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True
     )
+    
+    class Meta:
+        ordering = ['id']
+        db_table = 'Ad'
+        verbose_name = ('Ad')

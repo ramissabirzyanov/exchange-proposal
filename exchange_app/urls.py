@@ -20,10 +20,11 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("docs/", schema_view.with_ui("swagger", cache_timeout=0), name="swagger-doc"),
+    path('docs/', schema_view.with_ui("swagger", cache_timeout=0), name="swagger-doc"),
     path('', views.IndexView.as_view(), name='index'),
     path('users/', include('exchange_app.user.urls'), name='users'),
     path('ads/', include('exchange_app.ad.urls'), name='ad_list'),
+    path('categories/', include('exchange_app.category.urls'), name='category_list'),
     path('login/', views.UserLoginView.as_view(), name='login'),
     path('logout/', views.UserLogoutView.as_view(), name='logout'),
 ]  

@@ -37,3 +37,8 @@ class ExchangeProposal(models.Model):
         blank=True,
         verbose_name='Comment'
     )
+
+    class Meta:
+        ordering = ['id']
+        db_table = 'ExchangeProposal'
+        verbose_name = ('ExchangeProposal')
