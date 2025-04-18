@@ -31,3 +31,7 @@ class AdListView(IsUserLoggedMixin, ListView):
     model = Ad
     template_name = 'ad/ads.html'
     queryset = Ad.objects.all().order_by('-created_at')
+
+class AdDetailView(IsUserLoggedMixin, DetailView):
+    model = Ad
+    template_name = 'ad/ad_detail.html'

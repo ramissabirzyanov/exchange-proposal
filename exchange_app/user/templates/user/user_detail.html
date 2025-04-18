@@ -15,16 +15,24 @@
             <th>IMAGE URL</th>
             <th>CONDITION</th>
             <th>CREATE DATE</th>
+            <th></th>
         </tr>
         {% for ad in user.ads.all %}
         <tr>
             <th scope="row">{{ ad.id }}</th>
-            <td><a role="button" href="{% url 'ad_detail' %}">{{ ad.title }}</a></td>
-            <td>{{ ad.image_url|default_if_none:"" }}</td>
+            <td><a role="button" href="{% url 'ad_detail' ad.pk %}">{{ ad.title }}</a></td>
             <td>{{ ad.category.name }}</td>
+            <td>{{ ad.image_url|default_if_none:"" }}</td>
             <td>{{ ad.condition|default_if_none:"" }}</td>
             <td>{{ ad.created_at }}</td>
-        </td>
+            {% comment %}
+<!--             <td>
+              <a href="{% url 'ad_update' ad.pk %}">Изменить</a>
+              <br>
+              <a href="{% url 'ad_delete' ad.pk %}">Удалить</a>
+            </td> -->
+            {% endcomment %}
+        </tr>
         {% endfor %}
     </table>
     <br>

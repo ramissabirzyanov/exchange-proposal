@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+
+<div>
+    <h1>О предмете</h1>
+    <div>
+        <div>{{ ad.title }}</div>
+        <div>
+          <h5>Description: {{ ad.description}}</h5>
+          <hr>
+            <ul>
+              <li>Owner: {{ ad.owner.first_name }} {{ ad.owner.last_name }}</li>
+              <li>Category: {{ ad.category.name }}</li>
+              <li>Image Url: {{ ad.image_url|default_if_none:"" }}</li>
+              <li>Condition: {{ ad.condition|default_if_none:"" }}</li>
+              <li>Create at: {{ ad.created_at }}</li>
+            <div>
+            </ul>  
+            </div>
+        {% comment %}
+          <!-- <div>
+            <a href="{% url 'ad_update' ad.id %}">Изменить</a>
+            <br>
+            <a href="{% url 'ad_delete' ad.id %}">Удалить</a>
+          </div> -->
+        {% endcomment %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
