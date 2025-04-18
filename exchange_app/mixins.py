@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from rest_framework.permissions import BasePermission
 
 
 class NoPermissionHandleMixin:
@@ -30,3 +31,17 @@ class IsAdOwnerMixin(NoPermissionHandleMixin, UserPassesTestMixin):
         self.permission_denied_message = "Не достаточно прав!"
         self.permission_denied_url = reverse_lazy('users')
         return super().dispatch(request, *args, **kwargs)
+
+
+class UserAccessPermission(BasePermission):
+    message = "Недостаточно прав"
+
+    def has_permission(self, request, view):
+        if view.action == 'create':
+            return True
+        return request.user.is_authenticated
+
+    def has_object_permission(self, request, view, obj):
+        if view.action in ['list', 'retrieve']:
+            return True
+        return obj == request.user

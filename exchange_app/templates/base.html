@@ -11,7 +11,10 @@
         <ul>
           {% if user.is_authenticated %}
           <li>
-            <a  href="{% url 'users' %}">Пользователи</a>
+            <a  href="{% url 'ads' %}">Предметы для обмена</a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}">Logout</a>
           </li>
           {% else %}
           <li>

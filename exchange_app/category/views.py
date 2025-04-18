@@ -10,7 +10,6 @@ from exchange_app.mixins import IsUserLoggedMixin
 
 
 class CategoryiesAPIView(IsUserLoggedMixin, ModelViewSet):
-
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 

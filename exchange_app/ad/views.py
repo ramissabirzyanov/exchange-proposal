@@ -11,7 +11,6 @@ from exchange_app.mixins import IsUserLoggedMixin, IsAdOwnerMixin
 
 
 class AdsAPIView(IsUserLoggedMixin, ModelViewSet):
-
     queryset = Ad.objects.all()
     serializer_class = AdSerializer
 
@@ -20,7 +19,7 @@ class AdCreateView(IsUserLoggedMixin, SuccessMessageMixin, CreateView):
     model = Ad
     template_name = 'ad/ad_create.html'
     form_class = AdCreateForm
-    success_url = reverse_lazy('ad_list')
+    success_url = reverse_lazy('ads')
     success_message = 'Предмет успешно добавлен'
 
     def form_valid(self, form):
@@ -30,6 +29,5 @@ class AdCreateView(IsUserLoggedMixin, SuccessMessageMixin, CreateView):
 
 class AdListView(IsUserLoggedMixin, ListView):
     model = Ad
-    template_name = 'ad/ad_list.html'
+    template_name = 'ad/ads.html'
     queryset = Ad.objects.all().order_by('-created_at')
-

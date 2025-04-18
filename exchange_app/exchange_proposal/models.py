@@ -41,4 +41,4 @@ class ExchangeProposal(models.Model):
     class Meta:
         ordering = ['id']
         db_table = 'ExchangeProposal'
-        verbose_name = ('ExchangeProposal')
+        verbose_name = 'ExchangeProposal'

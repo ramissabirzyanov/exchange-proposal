@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+
+from django.contrib import admin
+from .models import ExchangeProposal
+
+
+@admin.register(ExchangeProposal)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'ad', 'sender', 'reciever', 'status')

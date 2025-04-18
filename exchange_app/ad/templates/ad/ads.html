@@ -10,7 +10,6 @@
           <tr>
             <th>ID</th>
             <th>TITLE</th>
-            <th>DESCRIPTION</th>
             <th>CATEGORY</th>
             <th>IMAGE URL</th>
             <th>CONDITION</th>
@@ -21,11 +20,10 @@
           {% for ad in ad_list %}
           <tr>
             <th scope="row">{{ ad.id }}</th>
-            <td>{{ ad.title }}</td>
-            <td>{{ ad.description }}</td>
+            <td><a role="button" href="{% url 'ad_detail' %}">{{ ad.title }}</a></td>
             <td>{{ ad.category }}</td>
-            <td>{{ ad.image_url }}</td>
-            <td>{{ ad.condition }}</td>
+            <td>{{ ad.image_url|default_if_none:"" }}</td>
+            <td>{{ ad.condition|default_if_none:"" }}</td>
             <td>{{ ad.create_at }}</td>
           {% endfor %}
         </tbody>

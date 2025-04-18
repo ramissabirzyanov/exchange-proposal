@@ -17,13 +17,13 @@ class Ad(models.Model):
     )
     owner = models.ForeignKey(
         User,
-        related_name='owner',
+        related_name='ads',
         on_delete=models.CASCADE,
         verbose_name=('Owner')
     )
     category = models.ForeignKey(
         Category,
-        related_name='category',
+        related_name='ads',
         on_delete=models.PROTECT,
         verbose_name=('Category')
     )

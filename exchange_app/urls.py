@@ -1,16 +1,20 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from exchange_app.user.views import UsersAPIView
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 
+from exchange_app.user.views import UsersAPIViewSet
+from exchange_app.ad.views import AdsAPIView
+from exchange_app.category.views import CategoryiesAPIView
 from exchange_app import views
 
 
 router = DefaultRouter()
-router.register(r'api/users', UsersAPIView)
+router.register(r'api/users', UsersAPIViewSet)
+router.register(r'api/ads', AdsAPIView)
+router.register(r'api/categories', CategoryiesAPIView)
 
 schema_view = get_schema_view(
     openapi.Info(title="API Documentation", default_version="v1"),

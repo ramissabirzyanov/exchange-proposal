@@ -1,11 +1,6 @@
-{% if messages %}
-<ul>
-    {% for message in messages %}
-    <li> {{ message }} </li>
-    {% endfor %}
-</ul>
-{% endif %}
+{% extends "base.html" %}
 
+{% block content %}
 <h2>Предметы {{ user.first_name }} {{ user.last_name }}</h2>
 <br>
 <div>
@@ -14,26 +9,27 @@
 <div>
     <table>
         <tr>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Изображение</th>
-            <th>Категория</th>
-            <th>Состояние</th>
-            <th>Дата добавления</th>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>CATEGORY</th>
+            <th>IMAGE URL</th>
+            <th>CONDITION</th>
+            <th>CREATE DATE</th>
         </tr>
-        {% for ad in user.ad.all %}
+        {% for ad in user.ads.all %}
         <tr>
-            <td>{{ user.ad.title }}</td>
-            <td>{{ user.ad.description }}</td>
-            <td>{{ user.ad.image_url }}</td>
-            <td>{{ user.ad.category_id }}</td>
-            <td>{{ user.ad.condition }}</td>
-            <td>{{ user.ad.created_at }}</td>
+            <th scope="row">{{ ad.id }}</th>
+            <td><a role="button" href="{% url 'ad_detail' %}">{{ ad.title }}</a></td>
+            <td>{{ ad.image_url|default_if_none:"" }}</td>
+            <td>{{ ad.category.name }}</td>
+            <td>{{ ad.condition|default_if_none:"" }}</td>
+            <td>{{ ad.created_at }}</td>
         </td>
         {% endfor %}
     </table>
     <br>
 </div>
 <hr>
+{% endblock %}
 
 
